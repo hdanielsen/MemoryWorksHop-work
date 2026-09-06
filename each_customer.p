@@ -4,7 +4,7 @@ block-level on error undo, throw.
 
 current-window:width = 400.
 
-for each customer no-lock with width 330 stream-io:
+for each customer no-lock by naME with width 330 stream-io:
     disp Customer. 
     disp Customer.Address format "x(20)" 
          Customer.Address2 format "x(20)"

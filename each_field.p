@@ -24,9 +24,12 @@ block-level on error undo, throw.
 current-window:width =300.     
 
 for each {&db}._field no-lock where 
-                 // {&db}._field._data-type = "character"
+                 {&db}._field._data-type = "clob"
+                  or
+                  {&db}._field._data-type = "blob",
+             
                 //  and 
-                  {&db}._field._field-name eq "itemnum", 
+                  //{&db}._field._field-name eq "name", 
 /*    if {&db}._field._format begins "X(" and substr({&db}._field._format,length({&db}._field._format),1) = ")" then next.*/
 /*    if {&db}._field._format begins "!(" and substr({&db}._field._format,length({&db}._field._format),1) = ")" then next.*/
 /*    if {&db}._field._format = "X" then next.                                                                            */
@@ -44,4 +47,4 @@ for each {&db}._field no-lock where
  end.
  message "done"
  view-as alert-box.   
-    
+     
