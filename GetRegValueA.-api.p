@@ -83,9 +83,9 @@ FUNCTION GetRegistryString RETURNS CHARACTER (
 END FUNCTION.
 //registryPath = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time".
 /* Final Execution Test Block */
-MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_CURRENT_USER}, "Software\PSC\PROGRESS\x64\12.8\Startup", "DLC")
-   view-as alert-box. 
+//MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_CURRENT_USER}, "Software\PSC\PROGRESS\x64\12.8\Startup", "DLC")
+  // view-as alert-box. 
 
-MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_CURRENT_USER}, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time", "Display") 
+MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_LOCAL_MACHINE}, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time", "Display") 
     VIEW-AS ALERT-BOX INFORMATION BUTTONS OK.
 
