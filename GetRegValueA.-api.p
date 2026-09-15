@@ -3,6 +3,8 @@
 
 &GLOBAL-DEFINE RRF_RT_REG_SZ 2                 /* Enforce string type */
 &GLOBAL-DEFINE ERROR_SUCCESS 0
+&GLOBAL-DEFINE RRF_RT_REG_DWORD 16  /* Strictly 4-byte integers */
+&GLOBAL-DEFINE RRF_RT_ANY       65535 /* Allows ANY type (SZ, DWORD, BINARY) */
 
 PROCEDURE RegGetValueA EXTERNAL "advapi32.dll" :
     DEFINE INPUT  PARAMETER hkey          AS LONG.       
@@ -42,7 +44,8 @@ FUNCTION GetRegistryString RETURNS CHARACTER (
         INPUT  iRootKey,
         INPUT  cSubKey,
         INPUT  cValueName,
-        INPUT  {&RRF_RT_REG_SZ},
+        input  {&RRF_RT_ANY},
+       // INPUT  {&RRF_RT_REG_SZ},
         OUTPUT iType,
         INPUT  mBuffer,        
         INPUT-OUTPUT iLength,  
@@ -64,7 +67,8 @@ FUNCTION GetRegistryString RETURNS CHARACTER (
         INPUT  iRootKey,
         INPUT  cSubKey,
         INPUT  cValueName,
-        INPUT  {&RRF_RT_REG_SZ},
+        input  {&RRF_RT_ANY},
+       // INPUT  {&RRF_RT_REG_SZ},
         OUTPUT iType,
         INPUT  mBuffer,        
         INPUT-OUTPUT iLength,
@@ -81,11 +85,9 @@ FUNCTION GetRegistryString RETURNS CHARACTER (
 
     RETURN cReturn.
 END FUNCTION.
-//registryPath = "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time".
-/* Final Execution Test Block */
-//MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_CURRENT_USER}, "Software\PSC\PROGRESS\x64\12.8\Startup", "DLC")
-  // view-as alert-box. 
 
-MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_LOCAL_MACHINE}, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time", "Display") 
+MESSAGE "Registry Key value : " SKIP GetRegistryString({&HKEY_LOCAL_MACHINE}, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time", "Display") skip
+        "Registry Key value : " SKIP GetRegistryString({&HKEY_LOCAL_MACHINE}, "SOFTWARE\Microsoft\Windows NT\CurrentVersion\Time Zones\Eastern Standard Time", "Index") skip
+
     VIEW-AS ALERT-BOX INFORMATION BUTTONS OK.
 

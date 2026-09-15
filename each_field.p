@@ -24,12 +24,16 @@ block-level on error undo, throw.
 current-window:width =300.     
 
 for each {&db}._field no-lock where 
-            //     {&db}._field._data-type = "clob"
-              //    or
-                //  {&db}._field._data-type = "blob",
+/*                 {&db}._field._data-type = "datetime"  */
+/*                  or                                   */
+/*                {&db}._field._data-type = "datetime-tz"*/
+/*                or                                     */
+/*                {&db}._field._data-type = "date"       */
+/*                                                       */
+/*                ,                                      */
              
-                //  and 
-                  {&db}._field._field-name begins "address", 
+                 //and 
+                  {&db}._field._field-name begins "Custnum", 
 /*    if {&db}._field._format begins "X(" and substr({&db}._field._format,length({&db}._field._format),1) = ")" then next.*/
 /*    if {&db}._field._format begins "!(" and substr({&db}._field._format,length({&db}._field._format),1) = ")" then next.*/
 /*    if {&db}._field._format = "X" then next.                                                                            */
