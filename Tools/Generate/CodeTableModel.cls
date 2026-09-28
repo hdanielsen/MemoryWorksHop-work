@@ -1,6 +1,6 @@
  
  /*------------------------------------------------------------------------
-    File        : GenesisCodeTableModel
+    File        : CodeTableModel
     Purpose     : 
     Syntax      : 
     Description : 

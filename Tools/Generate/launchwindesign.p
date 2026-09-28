@@ -31,7 +31,6 @@ using Tools.Generate.CodeTableModel from propath.
 define variable hproc as handle no-undo.
 run Pmfo/Tools/Gui/WinDesign.p persistent set hproc.
 //run setSdoDirectory in hproc("sdo").
-//run SetSuperLibrary in hProc("lib/l0000.p").
 run setCodeTableModel in hProc (new CodeTableModel()).
 //run setCodeConverter in hProc (new CodeConverter("Core.BusinessLogic.BusinessEntity","Core.DataLayer.DataSource","Core.BusinessLogic.IUpdateDataRequest")).
 //run setCodeTableView in hProc (new DataFieldView()).
